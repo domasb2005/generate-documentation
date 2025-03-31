@@ -157,7 +157,6 @@ IMPORTANT INSTRUCTIONS:
 11. For null defaults, show \`null\` in the Default column
 12. For numeric defaults (like animation times), always include them in the Default column
 14. For the 'preset' parameter, verify that all preset names from the source files are listed as individual backticked values without additional aphostrophes and separated by 'or' in the Type column
-15. Note that both functions require the 'lightColor' parameter! You cannot run it with no parameters at all!
 
 `;
 }
@@ -205,7 +204,6 @@ TASK:
 12. Ensure null defaults are shown as \`null\` in the Default column
 13. Verify that numeric defaults (like animation times) are included in the Default column
 14. For the 'preset' parameter, verify that all preset names from the source files are listed as individual backticked values without additional aphostrophes and separated by 'or' in the Type column
-15. Note that both functions require the 'lightColor' parameter! You cannot run it with no parameters at all!
 
 IF YOU FIND ANY ISSUES:
 - Provide a corrected version of the documentation that follows the template format

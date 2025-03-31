@@ -1,0 +1,113 @@
+## Usage Examples
+
+### `useGlowHover` Examples
+
+#### Basic Usage (with lightColor)
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({ lightColor: 'rgba(255, 0, 0, 0.5)' });
+
+  return (
+    <button ref={ref} style={{ padding: '10px', border: '1px solid black' }}>
+      Hover Me
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+#### Using a Preset
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({ preset: 'transparent-blue' });
+
+  return (
+    <button ref={ref} style={{ padding: '10px', border: '1px solid black' }}>
+      Hover Me
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+#### Custom Configuration
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({
+    lightColor: 'yellow',
+    lightSize: 150,
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+    enableBurst: true
+  });
+
+  return (
+    <button ref={ref} style={{ padding: '10px', border: '1px solid black' }}>
+      Hover Me
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+### `glowHoverEffect` Examples
+
+#### Basic Usage (with lightColor)
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const button = document.querySelector('button');
+
+if (button) {
+  const cleanup = glowHoverEffect(button, { lightColor: 'rgba(0, 255, 0, 0.5)' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Using a Preset
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const button = document.querySelector('button');
+
+if (button) {
+  const cleanup = glowHoverEffect(button, { preset: 'transparent-purple' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Custom Configuration
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const button = document.querySelector('button');
+
+if (button) {
+  const cleanup = glowHoverEffect(button, {
+    lightColor: 'orange',
+    lightSize: 120,
+    lightSizeEnterAnimationTime: 200,
+    lightSizeLeaveAnimationTime: 100,
+    hoverBg: 'lightblue'
+  });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```

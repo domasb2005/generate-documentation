@@ -1,3 +1,7 @@
+# initial setup
+have node.js installed
+```npn i``` or ```bun i```
+
 # generate_docs.js
 
 A copy of the final result of this program can be found in ```documentation.md```
@@ -19,9 +23,9 @@ The progress of achieving this result can be found in ```/docs_output``` - all t
  This code takes screenshots for every test case and compares them to older screenshots in The ```tests/compareToReference.js-snapshots``` directory.
  Test results will be shown in the terminal and stored in the ```/test-results``` directory.
  The example testing showcase scenario would be: 
- 1. ```bunx playwright test``` -> all tests should pass
+ 1. ```npm run test``` -> all tests should pass
  2. change one of the colors in the ```testCases.js``` file
- 3. ```bunx playwright test``` -> see that the testcase fails in which the color was changed; see the test-results for detailed screenshot comparison
- 4. ```bunx playwright test --update-snapshots``` -> update the stored snapshots
- 5. ```bunx playwright test``` -> see that the test passes again with the new color;
-This is only a schowcase scenarion, not the intended usecase. The intended use case of this visual test is to verify that the old/unchanged functionalities still work after making changes in the source code. To manually try out the test cases by hand, run ```bun tests/manualTest.js```
+ 3. ```npm run test``` -> see that the testcase fails in which the color was changed; see the test-results for detailed screenshot comparison
+ 4. ```npm run test --update-snapshots``` -> update the stored snapshots
+ 5. ```npm run test``` -> see that the test passes again with the new color;
+This is only a schowcase scenarion, not the intended usecase. The intended use case of this visual test is to verify that the old/unchanged functionalities still work after making changes in the source code. To manually try out the test cases by hand, run ```bun tests/manualTest.js``` or ```node tests/manualTest.js```
