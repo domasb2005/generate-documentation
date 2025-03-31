@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 
-// Use npm/bun run dev instead of direct vite command
+// Use npm/bun run dev
 spawn(process.env.npm_execpath ? 'npm' : 'bun', ['run', 'dev'], {
   stdio: 'inherit',
   shell: true

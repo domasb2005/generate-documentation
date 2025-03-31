@@ -1,6 +1,7 @@
 // this code takes screenshots for every test case and compares them to older screenshots in the "tests/compareToReference.js-snapshots" directory.
 // test results will be shown in the terminal and stored in the /test-results directory.
 // the example testing showcase scenario would be: 
+// 0. run ```npx playwright install``` 
 // 1. ```npm run test``` -> all tests should pass
 // 2. change one of the colors in the testCases.js file
 // 3. ```npm run test``` -> see that the testcase fails in which the color was changed; see the test-results for detailed screenshot comparison
