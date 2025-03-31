@@ -1,0 +1,115 @@
+## Usage Examples
+
+### `useGlowHover` Examples
+
+#### Basic Usage (Default Settings)
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+const MyComponent = () => {
+  const ref = useGlowHover({ lightColor: 'rgba(0, 128, 255, 0.5)' });
+
+  return (
+    <div ref={ref} style={{ padding: '20px', border: '1px solid #ccc', width: '200px' }}>
+      Hover me!
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+#### Using a Preset
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+const MyComponent = () => {
+  const ref = useGlowHover({ preset: 'transparent-blue' });
+
+  return (
+    <div ref={ref} style={{ padding: '20px', border: '1px solid #ccc', width: '200px' }}>
+      Hover me! (Transparent Blue Preset)
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+#### Custom Configuration
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+const MyComponent = () => {
+  const ref = useGlowHover({
+    lightColor: 'rgba(255, 0, 0, 0.7)',
+    hoverBg: '#eee',
+    lightSize: 150,
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+    isElementMovable: false,
+  });
+
+  return (
+    <div ref={ref} style={{ padding: '20px', border: '1px solid #ccc', width: '200px' }}>
+      Hover me! (Custom Config)
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+### `glowHoverEffect` Examples
+
+#### Basic Usage (Default Settings)
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, { lightColor: 'rgba(0, 128, 255, 0.5)' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Using a Preset
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, { preset: 'transparent-purple' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Custom Configuration
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, {
+    lightColor: 'rgba(255, 0, 0, 0.7)',
+    hoverBg: '#eee',
+    lightSize: 150,
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+    isElementMovable: false,
+  });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
