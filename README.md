@@ -1,7 +1,10 @@
 # initial setup
-have node.js installed
-```npn i``` or ```bun i```
+Have node.js installed
+
+```npn i```
+
 for testing:
+
 ```npx playwright install```
 
 # generate_docs.js
@@ -17,7 +20,7 @@ The progress of achieving this result can be found in ```/docs_output``` - all t
  
  All there is in the code is reading source files and plugging them into prewritten prompts; there are 3 BIG prompts: first asking to fill out a documentation template; second asking to verify the documentation; third asking to create usage examples.
  
- The prompts will only work for this package or a very similar one, I tuned them to be optimal for this package. I didn't know to what extent this program should be universal. for a bigger package I think we should split the prompting into smaller pieces: first asking to identify main exported functions; then focusing on a one function at a time: prompting to analyze the function, its paramenters, usage examples; then move onto another function. An even bigger package would require the AI itself to decide which files it wants to see and analyze, and then provide it with those files (I don't know how to do this yet).
+ The prompts will only work for this package or a very similar one, I tuned them to be optimal for this package. I didn't know to what extent this program should be universal. For a bigger package I think we should split the prompting into smaller pieces: first asking to identify main exported functions; then focusing on a one function at a time: prompting to analyze the function, its paramenters, usage examples; then move onto another function. An even bigger package would require the AI itself to decide which files it wants to see and analyze, and then provide it with those files (I don't know how to do this yet).
 
 # testing
 **compareToReference.js**
@@ -25,6 +28,7 @@ The progress of achieving this result can be found in ```/docs_output``` - all t
  This code takes screenshots for every test case and compares them to older screenshots in The ```tests/compareToReference.js-snapshots``` directory.
  Test results will be shown in the terminal and stored in the ```/test-results``` directory.
  The example testing showcase scenario would be:
+
  0. run ```npx playwright install``` 
  1. ```npm run test``` -> all tests should pass
  2. change one of the colors in the ```testCases.js``` file
