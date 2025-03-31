@@ -1,0 +1,6 @@
+{
+    "apiKey": "",
+    "libraryPath": "node_modules/@rescui/use-glow-hover",
+    "templatePath": "template.md",
+    "outputPath": "docs_output/"
+}

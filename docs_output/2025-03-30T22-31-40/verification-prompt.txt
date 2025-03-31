@@ -1,0 +1,703 @@
+
+You are a technical documentation expert tasked with verifying the accuracy of generated documentation.
+
+DOCUMENTATION TO VERIFY:
+```
+# @rescui/use-glow-hover API Documentation
+
+## Exported Functions
+
+| Function | Description | Return Type |
+|----------|-------------|-------------|
+| `useGlowHover` | A React hook that applies a glow effect to an HTML element on hover. The hook returns a `ref` to be attached to the element. | `MutableRefObject<HTMLElement>` |
+| `glowHoverEffect` | A function that applies a glow effect to a specified HTML element. Returns a cleanup function that removes the event listeners and resets the element's styles. | `() => void` |
+
+## Function Parameters
+
+### `useGlowHover` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `disabled` | `boolean` | `false` |  If `true`, the glow effect is disabled. |
+| `hoverBg` | `string` |  | Background color to apply on hover. If not specified, it will try to read `hoverBg` from a `preset` and fallback to `backgroundColor` of the target element. |
+| `lightColor` | `string` |  | Color of the glow effect. Required unless a `preset` is provided. |
+| `lightSize` | `number` | `100` | Size of the glow effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` | `100` | Animation time in milliseconds for the glow effect to appear on mouse enter. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` | Animation time in milliseconds for the glow effect to disappear on mouse leave. |
+| `isElementMovable` | `boolean` | `false` | If `true`, the glow effect will update its position when the element moves (e.g., on scroll or resize). |
+| `customStaticBg` | `string` | `null` | A custom background to apply when the mouse leaves the element. If not provided, the background will be reset to its original state. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` | Forces a specific theme (`'light'` or `'dark'`) to be applied to the element on hover. Use with caution.  |
+| `enableBurst` | `boolean` | `false` | If `true`, enables a burst effect on mouse down and mouse up events. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` | The mode of the glow effect. |
+| `preset` | `'transparent-blue'` or `'transparent-purple'` or `'transparent-marine'` or `'transparent-tangerine'` or `'transparent-strawberry'` or `'bright-magenta'` or `'bright-magenta-dark'` or `'bright-pink'` or `'bright-pink-dark'` or `'bright-fresh-green'` or `'bright-fresh-green-dark'` or `'bright-red'` or `'bright-red-dark'` or `'bright-orange'` or `'bright-orange-dark'` or `'bright-cold-green'` or `'bright-cold-green-dark'` or `'bright-purple'` or `'bright-purple-dark'` |  | A preset configuration for the glow effect. If a preset is specified, `lightColor` can be specified to override the color in the preset. |
+
+### `glowHoverEffect` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `el` | `HTMLElement` |  | The HTML element to apply the glow effect to. |
+| `hoverBg` | `string` |  | Background color to apply on hover. If not specified, it will try to read `hoverBg` from a `preset` and fallback to `backgroundColor` of the target element. |
+| `lightColor` | `string` |  | Color of the glow effect. Required unless a `preset` is provided. |
+| `lightSize` | `number` | `100` | Size of the glow effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` | `100` | Animation time in milliseconds for the glow effect to appear on mouse enter. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` | Animation time in milliseconds for the glow effect to disappear on mouse leave. |
+| `isElementMovable` | `boolean` | `false` | If `true`, the glow effect will update its position when the element moves (e.g., on scroll or resize). |
+| `customStaticBg` | `string` | `null` | A custom background to apply when the mouse leaves the element. If not provided, the background will be reset to its original state. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` | Forces a specific theme (`'light'` or `'dark'`) to be applied to the element on hover. Use with caution. |
+| `enableBurst` | `boolean` | `false` | If `true`, enables a burst effect on mouse down and mouse up events. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` | The mode of the glow effect. |
+| `preset` | `'transparent-blue'` or `'transparent-purple'` or `'transparent-marine'` or `'transparent-tangerine'` or `'transparent-strawberry'` or `'bright-magenta'` or `'bright-magenta-dark'` or `'bright-pink'` or `'bright-pink-dark'` or `'bright-fresh-green'` or `'bright-fresh-green-dark'` or `'bright-red'` or `'bright-red-dark'` or `'bright-orange'` or `'bright-orange-dark'` or `'bright-cold-green'` or `'bright-cold-green-dark'` or `'bright-purple'` or `'bright-purple-dark'` |  | A preset configuration for the glow effect. If a preset is specified, `lightColor` can be specified to override the color in the preset. |
+
+```
+
+TEMPLATE THAT SHOULD BE FOLLOWED:
+```
+# {{LIBRARY_NAME}} API Documentation
+
+## Exported Functions
+
+| Function | Description | Return Type |
+|----------|-------------|-------------|
+| `functionName` | Description of function and explain what it returns | `ReturnType` |
+
+## Function Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `paramName` | `type` | `default` | Description |
+```
+
+Package.json:
+```json
+{
+  "name": "@rescui/use-glow-hover",
+  "version": "0.7.2",
+  "description": "Custom React hook for adding a glow effect on hover.",
+  "license": "Apache-2.0",
+  "author": "JetBrains",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "src:main": "src/index.ts",
+  "files": [
+    "lib",
+    "typings",
+    "LICENSE.txt"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.26.0"
+  },
+  "peerDependencies": {
+    "@rescui/typography": ">0.1.0 <1.0.0",
+    "react": ">=16.8.0 <19"
+  },
+  "devDependencies": {
+    "@rescui/scripts": "^0.3.5",
+    "@types/resize-observer-browser": "^0.1.5"
+  },
+  "scripts": {
+    "build": "rescui-scripts build"
+  },
+  "nx": {},
+  "gitHead": "94b4b5531e261cde472a2218ace4a21d7b0f990f"
+}
+```
+
+Source Files:
+## File: glow-hover-effect.d.ts
+```
+import presets from './presets';
+export declare type GlowHoverOptions = {
+    hoverBg?: string;
+    lightSize?: number;
+    lightSizeEnterAnimationTime?: number;
+    lightSizeLeaveAnimationTime?: number;
+    isElementMovable?: boolean;
+    customStaticBg?: string;
+    /**
+     * Force theme on hover. Use with caution.
+     */
+    forceTheme?: 'light' | 'dark' | false;
+    enableBurst?: boolean;
+    /**
+     *  Maybe there will be another modes in the future;)
+     *
+     *  @default glow
+     */
+    mode?: 'glow' | 'sharp';
+} & ({
+    preset: keyof typeof presets;
+    lightColor?: string;
+} | {
+    preset?: never;
+    lightColor: string;
+});
+export declare function parseColor(colorToParse: string): (string | number)[];
+export declare const glowHoverEffect: (el: HTMLElement, { preset, ...options }: GlowHoverOptions) => () => void;
+
+```
+
+## File: glow-hover-effect.js
+```
+import { linearAnimation } from './linear-animation.js';
+import presets from './presets.js';
+import { resetForcedTheme, forceLightTheme, forceDarkTheme } from './theme-utils.js';
+const BURST_TIME = 300;
+
+function parseColor(colorToParse) {
+  const div = document.createElement('div');
+  div.style.color = colorToParse;
+  div.style.position = 'absolute';
+  div.style.display = 'none';
+  document.body.appendChild(div);
+  const colorFromEl = getComputedStyle(div).color;
+  document.body.removeChild(div);
+  const parsedColor = colorFromEl.match(/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+)\s*)?\)$/i);
+
+  if (parsedColor) {
+    const alpha = typeof parsedColor[4] === 'undefined' ? 1 : parsedColor[4];
+    return [parsedColor[1], parsedColor[2], parsedColor[3], alpha];
+  } else {
+    console.error(`Color ${colorToParse} could not be parsed.`);
+    return [0, 0, 0, 0];
+  }
+} // eslint-disable-next-line complexity
+
+
+const glowHoverEffect = (el, _ref) => {
+  let {
+    preset,
+    ...options
+  } = _ref;
+
+  if (!el) {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    return () => {};
+  }
+
+  let presetCfg = {};
+
+  if (preset) {
+    const maybePreset = presets[preset];
+
+    if (!maybePreset) {
+      throw new Error(`Unknown preset ${preset}`);
+    }
+
+    presetCfg = maybePreset;
+  }
+
+  const hoverBg = options.hoverBg ?? presetCfg.hoverBg;
+  const lightColor = options.lightColor ?? presetCfg.lightColor;
+  const lightSize = options.lightSize ?? presetCfg.lightSize ?? 100;
+  const lightSizeEnterAnimationTime = options.lightSizeEnterAnimationTime ?? presetCfg.lightSizeEnterAnimationTime ?? 100;
+  const lightSizeLeaveAnimationTime = options.lightSizeLeaveAnimationTime ?? presetCfg.lightSizeLeaveAnimationTime ?? 50;
+  const isElementMovable = options.isElementMovable ?? presetCfg.isElementMovable ?? false;
+  const customStaticBg = options.customStaticBg ?? presetCfg.customStaticBg ?? null;
+  const mode = options.mode ?? presetCfg.mode ?? 'glow';
+  let forceTheme = options.forceTheme ?? presetCfg.forceTheme ?? null; // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+
+  if (options.forceTypographyColors) {
+    console.error('`forceTypographyColors` is deprecated for `useGlowHover`. Use `forceTheme` param instead.');
+
+    if (forceTheme === null) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      forceTheme = options.forceTypographyColors;
+    }
+  }
+
+  const enableBurst = options.enableBurst ?? presetCfg.enableBurst ?? false;
+
+  const getResolvedHoverBg = () => hoverBg ?? getComputedStyle(el).backgroundColor;
+
+  let resolvedHoverBg = getResolvedHoverBg(); // default bg (if not defined) is rgba(0, 0, 0, 0) which is bugged in gradients on safari
+  // so we use transparent lightColor instead
+
+  const parsedLightColor = parseColor(lightColor);
+  const parsedLightColorRGBString = parsedLightColor.slice(0, 3).join(',');
+  const resolvedGradientBg = `rgba(${parsedLightColorRGBString},0)`;
+  let isMouseInside = false;
+  let currentLightSize = 0;
+  let blownSize = 0;
+  let lightSizeEnterAnimationId = null;
+  let lightSizeLeaveAnimationId = null;
+  let blownSizeIncreaseAnimationId = null;
+  let blownSizeDecreaseAnimationId = null;
+  let lastMousePos;
+  const defaultBox = el.getBoundingClientRect();
+  let lastElPos = {
+    x: defaultBox.left,
+    y: defaultBox.top
+  };
+
+  const updateGlowEffect = () => {
+    if (!lastMousePos) {
+      return;
+    }
+
+    const gradientXPos = lastMousePos.x - lastElPos.x;
+    const gradientYPos = lastMousePos.y - lastElPos.y;
+    const circleRadius = `calc(${blownSize * 2.5}% + ${currentLightSize}px)`; // we dont use transparent color here because of https://youtrack.jetbrains.com/issue/WUI-843
+
+    const smoothGradient = `radial-gradient(circle at ${gradientXPos}px ${gradientYPos}px, ${lightColor} 0%, ${resolvedGradientBg} ${circleRadius}) no-repeat`; // we dont use transparent color here because of https://youtrack.jetbrains.com/issue/WUI-843
+
+    const sharpGradient = `radial-gradient(circle at ${gradientXPos}px ${gradientYPos}px, ${lightColor} ${circleRadius}, ${resolvedGradientBg} ${circleRadius}) no-repeat`;
+    const gradient = mode === 'sharp' ? sharpGradient : smoothGradient; // we duplicate resolvedHoverBg layer here because of transition "blinking" without it (for example, Button component)
+
+    el.style.background = `${gradient} border-box border-box ${resolvedHoverBg}`;
+  };
+
+  const updateEffectWithPosition = () => {
+    if (isMouseInside) {
+      const curBox = el.getBoundingClientRect();
+      lastElPos = {
+        x: curBox.left,
+        y: curBox.top
+      };
+      updateGlowEffect();
+    }
+  };
+
+  const onMouseEnter = e => {
+    resolvedHoverBg = getResolvedHoverBg();
+    lastMousePos = {
+      x: e.clientX,
+      y: e.clientY
+    };
+    const curBox = el.getBoundingClientRect();
+    lastElPos = {
+      x: curBox.left,
+      y: curBox.top
+    };
+    isMouseInside = true;
+    window.cancelAnimationFrame(lightSizeEnterAnimationId);
+    window.cancelAnimationFrame(lightSizeLeaveAnimationId);
+
+    if (forceTheme === 'light') {
+      forceLightTheme(el);
+    } else if (forceTheme === 'dark') {
+      forceDarkTheme(el);
+    } // animate currentLightSize from 0 to lightSize
+
+
+    linearAnimation({
+      onProgress: progress => {
+        currentLightSize = lightSize * progress;
+        updateGlowEffect();
+      },
+      time: lightSizeEnterAnimationTime,
+      initialProgress: currentLightSize / lightSize,
+      onIdUpdate: newId => lightSizeEnterAnimationId = newId
+    });
+  };
+
+  const onMouseMove = e => {
+    lastMousePos = {
+      x: e.clientX,
+      y: e.clientY
+    };
+
+    if (isElementMovable) {
+      updateEffectWithPosition();
+    } else {
+      updateGlowEffect();
+    }
+  };
+
+  const onMouseLeave = () => {
+    isMouseInside = false;
+    window.cancelAnimationFrame(lightSizeEnterAnimationId);
+    window.cancelAnimationFrame(lightSizeLeaveAnimationId);
+    window.cancelAnimationFrame(blownSizeIncreaseAnimationId);
+    window.cancelAnimationFrame(blownSizeDecreaseAnimationId); // animate currentLightSize from lightSize to 0
+
+    linearAnimation({
+      onProgress: progress => {
+        currentLightSize = lightSize * (1 - progress);
+        blownSize = Math.min(blownSize, (1 - progress) * 100);
+
+        if (progress < 1) {
+          updateGlowEffect();
+        } else {
+          el.style.background = customStaticBg ? customStaticBg : '';
+        }
+
+        if (forceTheme && progress === 1) {
+          resetForcedTheme(el);
+        }
+      },
+      time: lightSizeLeaveAnimationTime,
+      initialProgress: 1 - currentLightSize / lightSize,
+      onIdUpdate: newId => lightSizeLeaveAnimationId = newId
+    });
+  };
+
+  const onMouseDown = e => {
+    lastMousePos = {
+      x: e.clientX,
+      y: e.clientY
+    };
+    const curBox = el.getBoundingClientRect();
+    lastElPos = {
+      x: curBox.left,
+      y: curBox.top
+    };
+    window.cancelAnimationFrame(blownSizeIncreaseAnimationId);
+    window.cancelAnimationFrame(blownSizeDecreaseAnimationId); // animate blownSize from 0 to 100
+
+    linearAnimation({
+      onProgress: progress => {
+        blownSize = 100 * progress;
+        updateGlowEffect();
+      },
+      time: BURST_TIME,
+      initialProgress: blownSize / 100,
+      onIdUpdate: newId => blownSizeIncreaseAnimationId = newId
+    });
+  };
+
+  const onMouseUp = e => {
+    lastMousePos = {
+      x: e.clientX,
+      y: e.clientY
+    };
+    const curBox = el.getBoundingClientRect();
+    lastElPos = {
+      x: curBox.left,
+      y: curBox.top
+    };
+    window.cancelAnimationFrame(blownSizeIncreaseAnimationId);
+    window.cancelAnimationFrame(blownSizeDecreaseAnimationId); // animate blownSize from 100 to 0
+
+    linearAnimation({
+      onProgress: progress => {
+        blownSize = (1 - progress) * 100;
+        updateGlowEffect();
+      },
+      time: BURST_TIME,
+      initialProgress: 1 - blownSize / 100,
+      onIdUpdate: newId => blownSizeDecreaseAnimationId = newId
+    });
+  };
+
+  document.addEventListener('scroll', updateEffectWithPosition);
+  window.addEventListener('resize', updateEffectWithPosition);
+  el.addEventListener('mouseenter', onMouseEnter);
+  el.addEventListener('mousemove', onMouseMove);
+  el.addEventListener('mouseleave', onMouseLeave);
+
+  if (enableBurst) {
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseup', onMouseUp);
+  }
+
+  let resizeObserver;
+
+  if (window.ResizeObserver) {
+    resizeObserver = new ResizeObserver(updateEffectWithPosition);
+    resizeObserver.observe(el);
+  }
+
+  return () => {
+    window.cancelAnimationFrame(lightSizeEnterAnimationId);
+    window.cancelAnimationFrame(lightSizeLeaveAnimationId);
+    window.cancelAnimationFrame(blownSizeIncreaseAnimationId);
+    window.cancelAnimationFrame(blownSizeDecreaseAnimationId);
+    document.removeEventListener('scroll', updateEffectWithPosition);
+    window.removeEventListener('resize', updateEffectWithPosition);
+    el.removeEventListener('mouseenter', onMouseEnter);
+    el.removeEventListener('mousemove', onMouseMove);
+    el.removeEventListener('mouseleave', onMouseLeave);
+
+    if (enableBurst) {
+      el.removeEventListener('mousedown', onMouseDown);
+      el.removeEventListener('mouseup', onMouseUp);
+    }
+
+    if (forceTheme) {
+      resetForcedTheme(el);
+    }
+
+    if (resizeObserver) {
+      resizeObserver.unobserve(el);
+      resizeObserver.disconnect();
+    }
+  };
+};
+
+export { glowHoverEffect, parseColor };
+
+```
+
+## File: index.d.ts
+```
+export { useGlowHover } from './use-glow-hover';
+export type { GlowHoverHookOptions } from './use-glow-hover';
+export { glowHoverEffect } from './glow-hover-effect';
+export type { GlowHoverOptions } from './glow-hover-effect';
+
+```
+
+## File: index.js
+```
+export { useGlowHover } from './use-glow-hover.js';
+export { glowHoverEffect } from './glow-hover-effect.js';
+
+```
+
+## File: linear-animation.d.ts
+```
+interface LinearAnimationParams {
+    onProgress: (progress: number) => void;
+    onIdUpdate?: (id: number) => void;
+    time: number;
+    initialProgress?: number;
+}
+export declare const linearAnimation: ({ onProgress, onIdUpdate, time, initialProgress }: LinearAnimationParams) => void;
+export {};
+
+```
+
+## File: linear-animation.js
+```
+const linearAnimation = _ref => {
+  let {
+    onProgress,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    onIdUpdate = () => {},
+    time,
+    initialProgress = 0
+  } = _ref;
+
+  if (time === 0) {
+    onProgress(1);
+    onIdUpdate(null);
+    return;
+  }
+
+  let start = null;
+
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / time + initialProgress, 1);
+    onProgress(progress);
+
+    if (progress < 1) {
+      onIdUpdate(window.requestAnimationFrame(step));
+    } else {
+      onIdUpdate(null);
+    }
+  };
+
+  onIdUpdate(window.requestAnimationFrame(step));
+};
+
+export { linearAnimation };
+
+```
+
+## File: presets.d.ts
+```
+import { GlowHoverOptions } from './glow-hover-effect';
+export declare type GlowHoverPreset = Partial<Omit<GlowHoverOptions, 'preset'>>;
+export declare type GlowHoverPresets = Record<string, GlowHoverPreset>;
+declare const presets: GlowHoverPresets;
+export default presets;
+
+```
+
+## File: presets.js
+```
+const presets = {
+  'transparent-blue': {
+    lightColor: '#4CA6FF'
+  },
+  'transparent-purple': {
+    lightColor: '#8473FF'
+  },
+  'transparent-marine': {
+    lightColor: '#1FBBA1'
+  },
+  'transparent-tangerine': {
+    lightColor: '#FF7936'
+  },
+  'transparent-strawberry': {
+    lightColor: '#FF60A6'
+  },
+  'bright-magenta': {
+    hoverBg: '#087CFA',
+    lightColor: '#FF45ED',
+    forceTheme: 'dark'
+  },
+  'bright-magenta-dark': {
+    hoverBg: '#4CA6FF',
+    lightColor: '#FF45ED',
+    forceTheme: 'light'
+  },
+  'bright-pink': {
+    hoverBg: '#675CE9',
+    lightColor: '#E44A90',
+    forceTheme: 'dark'
+  },
+  'bright-pink-dark': {
+    hoverBg: '#8473FF',
+    lightColor: '#E44A90',
+    forceTheme: 'light'
+  },
+  'bright-fresh-green': {
+    hoverBg: '#28B8A0',
+    lightColor: '#75D64B',
+    forceTheme: 'dark'
+  },
+  'bright-fresh-green-dark': {
+    hoverBg: '#1FBBA1',
+    lightColor: '#75D64B',
+    forceTheme: 'light'
+  },
+  'bright-red': {
+    hoverBg: '#F76707',
+    lightColor: '#DD1265',
+    forceTheme: 'dark'
+  },
+  'bright-red-dark': {
+    hoverBg: '#FF7936',
+    lightColor: '#DD1265',
+    forceTheme: 'light'
+  },
+  'bright-orange': {
+    hoverBg: '#FF318C',
+    lightColor: '#FDB60D',
+    forceTheme: 'dark'
+  },
+  'bright-orange-dark': {
+    hoverBg: '#FF60A6',
+    lightColor: '#FDB60D',
+    forceTheme: 'light'
+  },
+  'bright-cold-green': {
+    hoverBg: '#087CFA',
+    lightColor: '#3BEA62',
+    forceTheme: 'dark'
+  },
+  'bright-cold-green-dark': {
+    hoverBg: '#4CA6FF',
+    lightColor: '#3BEA62',
+    forceTheme: 'light'
+  },
+  'bright-purple': {
+    hoverBg: '#28B8A0',
+    lightColor: '#6B57FF',
+    forceTheme: 'dark'
+  },
+  'bright-purple-dark': {
+    hoverBg: '#1FBBA1',
+    lightColor: '#6B57FF',
+    forceTheme: 'light'
+  }
+};
+export { presets as default };
+
+```
+
+## File: theme-utils.d.ts
+```
+export declare const forceLightTheme: (el: HTMLElement) => void;
+export declare const forceDarkTheme: (el: HTMLElement) => void;
+export declare const resetForcedTheme: (el: HTMLElement) => void;
+
+```
+
+## File: theme-utils.js
+```
+import { resetTypographyColorVariables, typographyLight, typographyDark } from '@rescui/typography';
+
+const forceLightTheme = el => {
+  if (typographyLight) {
+    // noop in latest version, but because typography may be of older version (via peerDependency), we should still call it
+    typographyLight(el);
+  }
+
+  el.style.setProperty('--_rs-internal-force-theme-dark-consult-rescui-before-using', '0');
+};
+
+const forceDarkTheme = el => {
+  if (typographyDark) {
+    // noop in latest version, but because typography may be of older version (via peerDependency), we should still call it
+    typographyDark(el);
+  }
+
+  el.style.setProperty('--_rs-internal-force-theme-dark-consult-rescui-before-using', '1');
+};
+
+const resetForcedTheme = el => {
+  if (resetTypographyColorVariables) {
+    // noop in latest version, but because typography may be of older version (via peerDependency), we should still call it
+    resetTypographyColorVariables(el);
+  }
+
+  el.style.setProperty('--_rs-internal-force-theme-dark-consult-rescui-before-using', null);
+};
+
+export { forceDarkTheme, forceLightTheme, resetForcedTheme };
+
+```
+
+## File: use-glow-hover.d.ts
+```
+/// <reference types="react" />
+import { GlowHoverOptions } from './glow-hover-effect';
+export declare type GlowHoverHookOptions = GlowHoverOptions & {
+    disabled?: boolean;
+};
+export declare const useGlowHover: ({ disabled, ...options }: GlowHoverHookOptions) => import("react").MutableRefObject<HTMLElement>;
+
+```
+
+## File: use-glow-hover.js
+```
+import { useRef, useEffect } from 'react';
+import { glowHoverEffect } from './glow-hover-effect.js';
+
+const useGlowHover = _ref => {
+  let {
+    disabled = false,
+    ...options
+  } = _ref;
+  const ref = useRef(null);
+  useEffect(() => !disabled && ref.current ? glowHoverEffect(ref.current, options) : // eslint-disable-next-line @typescript-eslint/no-empty-function
+  () => {}, [disabled, ...Object.values(options)]);
+  return ref;
+};
+
+export { useGlowHover };
+
+```
+
+TASK:
+1. Compare the generated documentation against the source files and template
+2. Check for any misalignments, anomalies, or mistakes
+3. Verify that everything in the documentation is accurate and based on the actual source code
+4. Check that no internal utility functions are documented
+5. Ensure only the main exported functions from index files are documented
+6. Verify that the documentation follows the exact structure and formatting of the template
+7. When documenting union types (like 'light' | 'dark' | false), format them as `'light'` or `'dark'` or `false` with individual backticks for each value
+8. DO NOT wrap your entire response in triple backticks (```)
+9. Verify that ALL default values are correctly documented in the Default column
+10. Check for fallback patterns like `options.value ?? presetCfg.value ?? defaultValue` and ensure the final fallback value is shown as the default
+11. Verify that boolean parameters show their default values (`true` or `false`) when they exist
+12. Ensure null defaults are shown as `null` in the Default column
+13. Verify that numeric defaults (like animation times) are included in the Default column
+14. For the 'preset' parameter, verify that all preset names from the source files are listed as individual backticked values without additional aphostrophes and separated by 'or' in the Type column
+
+IF YOU FIND ANY ISSUES:
+- Provide a corrected version of the documentation that follows the template format
+- Make sure your corrections maintain the exact structure of the template
+
+IF EVERYTHING IS CORRECT:
+- Simply respond with exactly: "change nothing"
+
+DO NOT include any explanations or additional text in your response, only the corrected documentation OR "change nothing".

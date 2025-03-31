@@ -1,0 +1,158 @@
+```
+# @rescui/use-glow-hover API Documentation
+
+## Exported Functions
+
+| Function | Description | Return Type |
+|----------|-------------|-------------|
+| `useGlowHover` | A React hook that applies a glow effect to an element on hover. It returns a ref to be attached to the element. | `MutableRefObject<HTMLElement>` |
+| `glowHoverEffect` | Applies the glow hover effect to a specified HTML element. It returns a cleanup function to remove the event listeners and reset styles. | `() => void` |
+
+## Function Parameters
+
+### `useGlowHover` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `disabled` | `boolean` | `false` | Determines whether the glow effect is disabled. |
+| `hoverBg` | `string` |  | Background color to set on hover. If not provided, it will fallback to the preset value or the element's current background color. |
+| `lightColor` | `string` |  | The color of the glow effect. Must be provided directly, or via a preset. |
+| `lightSize` | `number` | `100` | The size of the glow effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` | `100` | The duration of the animation when the mouse enters the element, in milliseconds. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` | The duration of the animation when the mouse leaves the element, in milliseconds. |
+| `isElementMovable` | `boolean` | `false` | Determines whether the element is movable, which affects how the gradient is updated. |
+| `customStaticBg` | `string` | `null` | A custom background to set when the mouse is not hovering over the element. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` | Forces a specific theme on hover. Use with caution as it overrides the existing theme. |
+| `enableBurst` | `boolean` | `false` | Enables a burst effect on mouse down and mouse up events. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` | The mode of the glow effect, either `'glow'` for a smooth gradient or `'sharp'` for a sharp gradient. |
+| `preset` | `'transparent-blue'` or `'transparent-purple'` or `'transparent-marine'` or `'transparent-tangerine'` or `'transparent-strawberry'` or `'bright-magenta'` or `'bright-magenta-dark'` or `'bright-pink'` or `'bright-pink-dark'` or `'bright-fresh-green'` or `'bright-fresh-green-dark'` or `'bright-red'` or `'bright-red-dark'` or `'bright-orange'` or `'bright-orange-dark'` or `'bright-cold-green'` or `'bright-cold-green-dark'` or `'bright-purple'` or `'bright-purple-dark'` |  | A predefined configuration for the glow effect. If a preset is used, `lightColor` must be specified directly, or be included in the selected preset. |
+
+### `glowHoverEffect` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `el` | `HTMLElement` |  | The HTML element to apply the glow effect to. |
+| `hoverBg` | `string` |  | Background color to set on hover. If not provided, it will fallback to the preset value or the element's current background color. |
+| `lightColor` | `string` |  | The color of the glow effect. Must be provided directly, or via a preset. |
+| `lightSize` | `number` | `100` | The size of the glow effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` | `100` | The duration of the animation when the mouse enters the element, in milliseconds. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` | The duration of the animation when the mouse leaves the element, in milliseconds. |
+| `isElementMovable` | `boolean` | `false` | Determines whether the element is movable, which affects how the gradient is updated. |
+| `customStaticBg` | `string` | `null` | A custom background to set when the mouse is not hovering over the element. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` | Forces a specific theme on hover. Use with caution as it overrides the existing theme. |
+| `enableBurst` | `boolean` | `false` | Enables a burst effect on mouse down and mouse up events. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` | The mode of the glow effect, either `'glow'` for a smooth gradient or `'sharp'` for a sharp gradient. |
+| `preset` | `'transparent-blue'` or `'transparent-purple'` or `'transparent-marine'` or `'transparent-tangerine'` or `'transparent-strawberry'` or `'bright-magenta'` or `'bright-magenta-dark'` or `'bright-pink'` or `'bright-pink-dark'` or `'bright-fresh-green'` or `'bright-fresh-green-dark'` or `'bright-red'` or `'bright-red-dark'` or `'bright-orange'` or `'bright-orange-dark'` or `'bright-cold-green'` or `'bright-cold-green-dark'` or `'bright-purple'` or `'bright-purple-dark'` |  | A predefined configuration for the glow effect. If a preset is used, `lightColor` must be specified directly, or be included in the selected preset. |
+```change nothing
+
+
+## Usage Examples
+
+### `useGlowHover` Examples
+
+#### Basic Usage (Default Settings)
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const glowRef = useGlowHover({});
+
+  return (
+    <button ref={glowRef}>
+      Hover Me (Default Glow)
+    </button>
+  );
+}
+```
+
+#### Using a Preset
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const glowRef = useGlowHover({ preset: 'bright-magenta' });
+
+  return (
+    <button ref={glowRef}>
+      Hover Me (Bright Magenta Preset)
+    </button>
+  );
+}
+```
+
+#### Custom Configuration
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const glowRef = useGlowHover({
+    lightColor: 'red',
+    lightSize: 50,
+    hoverBg: 'lightyellow',
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+    mode: 'sharp'
+  });
+
+  return (
+    <button ref={glowRef}>
+      Hover Me (Custom Glow)
+    </button>
+  );
+}
+```
+
+### `glowHoverEffect` Examples
+
+#### Basic Usage (Default Settings)
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, { lightColor: 'lightblue' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Using a Preset
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, { preset: 'transparent-strawberry' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Custom Configuration
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, {
+    lightColor: 'orange',
+    lightSize: 75,
+    hoverBg: 'lightcoral',
+    lightSizeEnterAnimationTime: 200,
+    lightSizeLeaveAnimationTime: 100,
+    isElementMovable: true,
+    enableBurst: true
+  });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```

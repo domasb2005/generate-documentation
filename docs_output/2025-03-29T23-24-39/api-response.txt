@@ -1,0 +1,68 @@
+# @rescui/use-glow-hover API Documentation
+
+## Exported Functions
+
+| Function | Description | Return Type |
+|----------|-------------|-------------|
+| `useGlowHover` |  A React hook that applies a glow effect to an HTML element on hover.  It returns a React ref to be attached to the element. | `MutableRefObject<HTMLElement>` |
+| `glowHoverEffect` |  A function that directly applies the glow hover effect to a given HTML element. It returns a cleanup function that removes the event listeners and resets the element's styles. | `() => void` |
+
+## Function Parameters
+
+### `useGlowHover` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `disabled` | `boolean` | `false` |  Whether the glow effect is disabled. |
+| `hoverBg` | `string` | `undefined` |  Background color to apply on hover. Defaults to the element's current background color. |
+| `lightColor` | `string` |  | The color of the glow effect.  Must be specified directly or via a preset. |
+| `lightSize` | `number` | `100` |  The size of the glow effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` | `100` |  The duration of the animation when the mouse enters the element, in milliseconds. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` |  The duration of the animation when the mouse leaves the element, in milliseconds. |
+| `isElementMovable` | `boolean` | `false` |  Whether the element can move, which requires the glow effect to update on each frame. |
+| `customStaticBg` | `string` | `null` |  A custom background to apply when the mouse is not hovering over the element. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` |  Forces a specific theme (`'light'` or `'dark'`) on hover. |
+| `enableBurst` | `boolean` | `false` | Enables a burst effect on mouse down and mouse up events. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` |  The mode of the glow effect. |
+| `preset` | `keyof typeof presets` |  | The name of a preset configuration.  If provided, `lightColor` must also be provided. |
+
+### `glowHoverEffect` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `el` | `HTMLElement` |  | The HTML element to apply the glow effect to. |
+| `hoverBg` | `string` | `undefined` |  Background color to apply on hover. Defaults to the element's current background color. |
+| `lightColor` | `string` |  | The color of the glow effect.  Must be specified directly or via a preset. |
+| `lightSize` | `number` | `100` |  The size of the glow effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` | `100` |  The duration of the animation when the mouse enters the element, in milliseconds. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` |  The duration of the animation when the mouse leaves the element, in milliseconds. |
+| `isElementMovable` | `boolean` | `false` |  Whether the element can move, which requires the glow effect to update on each frame. |
+| `customStaticBg` | `string` | `null` |  A custom background to apply when the mouse is not hovering over the element. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` |  Forces a specific theme (`'light'` or `'dark'`) on hover. |
+| `enableBurst` | `boolean` | `false` | Enables a burst effect on mouse down and mouse up events. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` |  The mode of the glow effect. |
+| `preset` | `keyof typeof presets` |  | The name of a preset configuration.  If provided, `lightColor` must also be provided. |
+
+## Available Presets
+
+| Preset Name |
+|-------------|
+| `transparent-blue` |
+| `transparent-purple` |
+| `transparent-marine` |
+| `transparent-tangerine` |
+| `transparent-strawberry` |
+| `bright-magenta` |
+| `bright-magenta-dark` |
+| `bright-pink` |
+| `bright-pink-dark` |
+| `bright-fresh-green` |
+| `bright-fresh-green-dark` |
+| `bright-red` |
+| `bright-red-dark` |
+| `bright-orange` |
+| `bright-orange-dark` |
+| `bright-cold-green` |
+| `bright-cold-green-dark` |
+| `bright-purple` |
+| `bright-purple-dark` |

@@ -1,0 +1,105 @@
+## Usage Examples
+
+### `useGlowHover` Examples
+
+#### Basic Usage (Default Settings)
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const glowRef = useGlowHover({});
+
+  return (
+    <button ref={glowRef}>
+      Hover Me (Default Glow)
+    </button>
+  );
+}
+```
+
+#### Using a Preset
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const glowRef = useGlowHover({ preset: 'transparent-blue' });
+
+  return (
+    <button ref={glowRef}>
+      Hover Me (Transparent Blue Preset)
+    </button>
+  );
+}
+```
+
+#### Custom Configuration
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const glowRef = useGlowHover({
+    lightColor: 'orange',
+    lightSize: 150,
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+  });
+
+  return (
+    <button ref={glowRef}>
+      Hover Me (Custom Glow)
+    </button>
+  );
+}
+```
+
+### `glowHoverEffect` Examples
+
+#### Basic Usage (Default Settings)
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+// Get the element
+const element = document.getElementById('myElement');
+
+// Apply the glow effect
+const cleanup = glowHoverEffect(element, {});
+
+// To remove the effect:
+// cleanup();
+```
+
+#### Using a Preset
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+// Get the element
+const element = document.getElementById('myElement');
+
+// Apply the glow effect with a preset
+const cleanup = glowHoverEffect(element, { preset: 'bright-magenta' });
+
+// To remove the effect:
+// cleanup();
+```
+
+#### Custom Configuration
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+// Get the element
+const element = document.getElementById('myElement');
+
+// Apply the glow effect with custom settings
+const cleanup = glowHoverEffect(element, {
+  lightColor: 'red',
+  lightSize: 200,
+  hoverBg: 'lightgray',
+  enableBurst: true,
+});
+
+// To remove the effect:
+// cleanup();
+```

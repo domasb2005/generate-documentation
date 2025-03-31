@@ -1,0 +1,70 @@
+```
+# @rescui/use-glow-hover API Documentation
+
+## Exported Functions
+
+| Function | Description | Return Type |
+|----------|-------------|-------------|
+| `useGlowHover` | A custom React hook for adding a glow effect on hover to an element. Returns a ref object to be attached to the element. | `MutableRefObject<HTMLElement>` |
+| `glowHoverEffect` | Applies a glow effect to a specified HTML element based on provided options. Returns a cleanup function that removes the event listeners and resets the element's styles. | `() => void` |
+
+## Function Parameters
+
+### `useGlowHover` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `disabled` | `boolean` | `false` | A boolean value to disable or enable the effect. When set to `true`, the glow effect will not be applied. |
+| `hoverBg` | `string` |  | Background color to apply on hover. Overrides the default background color. |
+| `lightSize` | `number` |  | Size of the light effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` |  | Animation time for the light size when the mouse enters the element, in milliseconds. |
+| `lightSizeLeaveAnimationTime` | `number` |  | Animation time for the light size when the mouse leaves the element, in milliseconds. |
+| `isElementMovable` | `boolean` |  | Determines if the glow effect should update its position based on element movement (e.g., scrolling). |
+| `customStaticBg` | `string` |  | A custom background to be applied when the mouse leaves the element. |
+| `forceTheme` | `'light' or 'dark' or false` |  | Forces a specific theme on hover. Use with caution. |
+| `enableBurst` | `boolean` |  | Enables a burst effect on mouse down and mouse up. |
+| `mode` | `'glow' or 'sharp'` | `'glow'` | Defines the type of gradient to use. |
+| `preset` | `keyof typeof presets` |  | Key of the preset to use. |
+| `lightColor` | `string` |  | Color of the light effect. |
+
+### `glowHoverEffect` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `el` | `HTMLElement` |  | The HTML element to apply the glow effect to. |
+| `preset` | `keyof typeof presets` |  | Key of the preset to use. |
+| `hoverBg` | `string` |  | Background color to apply on hover. Overrides the default background color. |
+| `lightColor` | `string` |  | Color of the light effect. |
+| `lightSize` | `number` |  | Size of the light effect in pixels. |
+| `lightSizeEnterAnimationTime` | `number` |  | Animation time for the light size when the mouse enters the element, in milliseconds. |
+| `lightSizeLeaveAnimationTime` | `number` |  | Animation time for the light size when the mouse leaves the element, in milliseconds. |
+| `isElementMovable` | `boolean` |  | Determines if the glow effect should update its position based on element movement (e.g., scrolling). |
+| `customStaticBg` | `string` |  | A custom background to be applied when the mouse leaves the element. |
+| `forceTheme` | `'light' or 'dark' or false` |  | Forces a specific theme on hover. Use with caution. |
+| `enableBurst` | `boolean` |  | Enables a burst effect on mouse down and mouse up. |
+| `mode` | `'glow' or 'sharp'` | `'glow'` | Defines the type of gradient to use. |
+
+## Available Presets
+
+| Preset Name |
+|-------------|
+| `transparent-blue` |
+| `transparent-purple` |
+| `transparent-marine` |
+| `transparent-tangerine` |
+| `transparent-strawberry` |
+| `bright-magenta` |
+| `bright-magenta-dark` |
+| `bright-pink` |
+| `bright-pink-dark` |
+| `bright-fresh-green` |
+| `bright-fresh-green-dark` |
+| `bright-red` |
+| `bright-red-dark` |
+| `bright-orange` |
+| `bright-orange-dark` |
+| `bright-cold-green` |
+| `bright-cold-green-dark` |
+| `bright-purple` |
+| `bright-purple-dark` |
+```

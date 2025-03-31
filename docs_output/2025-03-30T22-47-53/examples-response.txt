@@ -1,0 +1,115 @@
+## Usage Examples
+
+### `useGlowHover` Examples
+
+#### Basic Usage (Default Settings)
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({});
+
+  return (
+    <button ref={ref}>
+      Hover Me
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+#### Using a Preset
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({ preset: 'transparent-blue', lightColor: '#4CA6FF' });
+
+  return (
+    <button ref={ref}>
+      Hover Me (Transparent Blue)
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+#### Custom Configuration
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({
+    lightColor: 'orange',
+    lightSize: 150,
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+    enableBurst: true,
+    mode: 'sharp'
+  });
+
+  return (
+    <button ref={ref}>
+      Hover Me (Custom)
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+### `glowHoverEffect` Examples
+
+#### Basic Usage (Default Settings)
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, { lightColor: 'red' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Using a Preset
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, { preset: 'transparent-purple', lightColor: '#8473FF' });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```
+
+#### Custom Configuration
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const element = document.getElementById('myElement');
+
+if (element) {
+  const cleanup = glowHoverEffect(element, {
+    lightColor: 'limegreen',
+    hoverBg: 'black',
+    lightSize: 80,
+    lightSizeEnterAnimationTime: 200,
+    lightSizeLeaveAnimationTime: 100,
+    isElementMovable: true
+  });
+
+  // To remove the effect later:
+  // cleanup();
+}
+```

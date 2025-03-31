@@ -1,0 +1,108 @@
+## Usage Examples
+
+### `useGlowHover` Examples
+
+#### Basic Usage (Default Settings)
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({ lightColor: 'rgba(0, 123, 255, 0.5)' });
+
+  return (
+    <button ref={ref}>
+      Hover Me (Default Settings)
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+#### Using a Preset
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({ preset: 'transparent-blue' });
+
+  return (
+    <button ref={ref}>
+      Hover Me (Transparent Blue Preset)
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+#### Custom Configuration
+```jsx
+import React from 'react';
+import { useGlowHover } from '@rescui/use-glow-hover';
+
+function MyComponent() {
+  const ref = useGlowHover({
+    lightColor: 'rgba(255, 0, 0, 0.7)',
+    lightSize: 150,
+    lightSizeEnterAnimationTime: 300,
+    lightSizeLeaveAnimationTime: 150,
+    hoverBg: '#eee',
+    enableBurst: true,
+    mode: 'sharp'
+  });
+
+  return (
+    <button ref={ref}>
+      Hover Me (Custom Settings)
+    </button>
+  );
+}
+
+export default MyComponent;
+```
+
+### `glowHoverEffect` Examples
+
+#### Basic Usage (Default Settings)
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const button = document.querySelector('button');
+const cleanup = glowHoverEffect(button, { lightColor: 'rgba(0, 123, 255, 0.5)' });
+
+// To remove the effect:
+// cleanup();
+```
+
+#### Using a Preset
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const button = document.querySelector('button');
+const cleanup = glowHoverEffect(button, { preset: 'transparent-purple' });
+
+// To remove the effect:
+// cleanup();
+```
+
+#### Custom Configuration
+```js
+import { glowHoverEffect } from '@rescui/use-glow-hover';
+
+const button = document.querySelector('button');
+const cleanup = glowHoverEffect(button, {
+  lightColor: 'rgba(0, 255, 0, 0.8)',
+  lightSize: 120,
+  hoverBg: '#f0f0f0',
+  lightSizeEnterAnimationTime: 200,
+  lightSizeLeaveAnimationTime: 100,
+  isElementMovable: true,
+  mode: 'sharp'
+});
+
+// To remove the effect:
+// cleanup();
+```

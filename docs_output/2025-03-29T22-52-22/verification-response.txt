@@ -1,0 +1,70 @@
+```
+# @rescui/use-glow-hover API Documentation
+
+## Exported Functions
+
+| Function | Description | Return Type |
+|----------|-------------|-------------|
+| `useGlowHover` | A React hook that applies a glow effect to an HTML element on hover. The hook returns a React ref to be attached to the element. | `React.MutableRefObject<HTMLElement>` |
+| `glowHoverEffect` | Applies the glow hover effect to a specified HTML element. Returns a cleanup function that removes all event listeners and resets the element's styles. | `() => void` |
+
+## Function Parameters
+
+### `useGlowHover` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `disabled` | `boolean` | `false` | If `true`, the glow effect is disabled. |
+| `hoverBg` | `string` |  | Background color to be applied on hover. If not provided, it falls back to the element's existing background color. |
+| `lightColor` | `string` |  | The color of the glow effect. |
+| `lightSize` | `number` | `100` | The size (in pixels) of the glow effect. |
+| `lightSizeEnterAnimationTime` | `number` | `100` | The duration (in milliseconds) of the animation when the mouse enters the element. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` | The duration (in milliseconds) of the animation when the mouse leaves the element. |
+| `isElementMovable` | `boolean` | `false` | If `true`, the glow effect will update its position if the element moves. |
+| `customStaticBg` | `string` | `null` | A custom background to be applied when the mouse leaves the element. If `null`, the background is reset to its original state. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` | Forces a specific theme (`'light'` or `'dark'`) on hover. If `false` or `null`, the theme is not forced. Use with caution. |
+| `enableBurst` | `boolean` | `false` | If `true`, enables a burst effect on mouse down and mouse up. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` | The mode of the glow effect. `'glow'` for a smooth gradient, `'sharp'` for a sharp gradient. |
+| `preset` | `keyof typeof presets` |  | The name of a predefined preset. If a preset is specified, its values will be used as defaults for other options. |
+
+### `glowHoverEffect` parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `el` | `HTMLElement` |  | The HTML element to which the glow effect will be applied. |
+| `preset` | `keyof typeof presets` |  | The name of a predefined preset. If a preset is specified, its values will be used as defaults for other options. |
+| `hoverBg` | `string` |  | Background color to be applied on hover. If not provided, it falls back to the element's existing background color. |
+| `lightColor` | `string` |  | The color of the glow effect. |
+| `lightSize` | `number` | `100` | The size (in pixels) of the glow effect. |
+| `lightSizeEnterAnimationTime` | `number` | `100` | The duration (in milliseconds) of the animation when the mouse enters the element. |
+| `lightSizeLeaveAnimationTime` | `number` | `50` | The duration (in milliseconds) of the animation when the mouse leaves the element. |
+| `isElementMovable` | `boolean` | `false` | If `true`, the glow effect will update its position if the element moves. |
+| `customStaticBg` | `string` | `null` | A custom background to be applied when the mouse leaves the element. If `null`, the background is reset to its original state. |
+| `forceTheme` | `'light'` or `'dark'` or `false` | `null` | Forces a specific theme (`'light'` or `'dark'`) on hover. If `false` or `null`, the theme is not forced. Use with caution. |
+| `enableBurst` | `boolean` | `false` | If `true`, enables a burst effect on mouse down and mouse up. |
+| `mode` | `'glow'` or `'sharp'` | `'glow'` | The mode of the glow effect. `'glow'` for a smooth gradient, `'sharp'` for a sharp gradient. |
+
+## Available Presets
+
+| Preset Name |
+|-------------|
+| `transparent-blue` |
+| `transparent-purple` |
+| `transparent-marine` |
+| `transparent-tangerine` |
+| `transparent-strawberry` |
+| `bright-magenta` |
+| `bright-magenta-dark` |
+| `bright-pink` |
+| `bright-pink-dark` |
+| `bright-fresh-green` |
+| `bright-fresh-green-dark` |
+| `bright-red` |
+| `bright-red-dark` |
+| `bright-orange` |
+| `bright-orange-dark` |
+| `bright-cold-green` |
+| `bright-cold-green-dark` |
+| `bright-purple` |
+| `bright-purple-dark` |
+```
