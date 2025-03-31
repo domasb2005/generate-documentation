@@ -1,7 +1,7 @@
 # initial setup
 Have node.js installed
 
-```npn i```
+```npm i```
 
 for testing:
 
